@@ -23,6 +23,7 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
+        android:contentDescription="@string/fab_add_stock_content_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

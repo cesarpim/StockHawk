@@ -18,7 +18,8 @@
     <string name="default_stocks_facebook">FB</string>
 
 
-    <string name="action_change_units">@string/pref_display_mode_key</string>
+    <string name="action_change_to_absolute">Show changes in dollars</string>
+    <string name="action_change_to_percentage">Show changes in percentages</string>
 
 
     <string name="dialog_title">Add Stock</string>
@@ -31,5 +32,10 @@
 
     <string name="toast_stock_added_no_connectivity">Symbol %s added. Will refresh when network available.</string>
     <string name="toast_no_connectivity">Will refresh when network available.</string>
+
+    <string name="fab_add_stock_content_description">Add a stock</string>
+    <string name="symbol_content_description">"Symbol: "</string>
+    <string name="price_content_description">"Price: "</string>
+    <string name="change_content_description">"Change: "</string>
 
 </resources>
