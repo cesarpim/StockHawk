@@ -1,5 +1,6 @@
 package com.udacity.stockhawk.sync;
 
+import android.app.Application;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
@@ -8,9 +9,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
+import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
+import com.udacity.stockhawk.ui.MainActivity;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -41,7 +48,7 @@ public final class QuoteSyncJob {
     private QuoteSyncJob() {
     }
 
-    static void getQuotes(Context context) {
+    static void getQuotes(final Context context) {
 
         Timber.d("Running sync job");
 
@@ -70,7 +77,7 @@ public final class QuoteSyncJob {
             ArrayList<ContentValues> quoteCVs = new ArrayList<>();
 
             while (iterator.hasNext()) {
-                String symbol = iterator.next();
+                final String symbol = iterator.next();
 
 
                 Stock stock = quotes.get(symbol);
@@ -111,7 +118,16 @@ public final class QuoteSyncJob {
                     quoteCVs.add(quoteCV);
                 } else {
                     PrefUtils.removeStock(context, symbol);
-                    // TODO: launch Toast on main activity
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(context,
+                                    context.getString(R.string.toast_stock_not_added_invalid,
+                                            symbol),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             }
 
