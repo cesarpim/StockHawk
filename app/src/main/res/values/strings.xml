@@ -27,12 +27,13 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_add">Add</string>
 
-    <string name="error_no_network">No network connectivity! Will load stock cursor when the network is available.</string>
-    <string name="error_no_stocks">No stocks added! Hit the floating action button to add one.</string>
+    <string name="error_no_network">No connection! Stocks will load when device is online.</string>
+    <string name="error_no_stocks">No stocks added! Hit the plus button to add one.</string>
 
-    <string name="toast_stock_added_no_connectivity">Symbol %s added. Will refresh when network available.</string>
-    <string name="toast_no_connectivity">Will refresh when network available.</string>
-    <string name="toast_stock_not_added_invalid">Symbol %s is invalid. Stock not added.</string>
+    <string name="toast_stock_added_no_connectivity">Symbol %s added. Will refresh when online.</string>
+    <string name="toast_no_connectivity_no_refresh">Will refresh when device is online.</string>
+    <string name="toast_stock_removed_invalid">Symbol %s is invalid. Stock removed.</string>
+    <string name="toast_no_connectivity_stocks_outdated">Device is offline. Stocks may be outdated.</string>
 
     <string name="fab_add_stock_content_description">Add a stock</string>
     <string name="symbol_content_description">"Symbol: "</string>

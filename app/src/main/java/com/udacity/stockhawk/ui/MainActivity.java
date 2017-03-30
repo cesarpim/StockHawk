@@ -81,7 +81,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         }).attachToRecyclerView(stockRecyclerView);
 
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!networkUp()) {
+            Toast.makeText(this, R.string.toast_no_connectivity_stocks_outdated, Toast.LENGTH_LONG).show();
+        }
     }
 
     private boolean networkUp() {
@@ -102,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             error.setVisibility(View.VISIBLE);
         } else if (!networkUp()) {
             swipeRefreshLayout.setRefreshing(false);
-            Toast.makeText(this, R.string.toast_no_connectivity, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.toast_no_connectivity_no_refresh, Toast.LENGTH_LONG).show();
         } else if (PrefUtils.getStocks(this).size() == 0) {
             swipeRefreshLayout.setRefreshing(false);
             error.setText(getString(R.string.error_no_stocks));
