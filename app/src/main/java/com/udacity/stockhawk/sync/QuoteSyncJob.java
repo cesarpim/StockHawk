@@ -153,7 +153,8 @@ public final class QuoteSyncJob {
         Timber.d("Scheduling a periodic task");
 
 
-        JobInfo.Builder builder = new JobInfo.Builder(PERIODIC_ID, new ComponentName(context, QuoteJobService.class));
+        JobInfo.Builder builder =
+                new JobInfo.Builder(PERIODIC_ID, new ComponentName(context, QuoteJobService.class));
 
 
         builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
@@ -161,7 +162,8 @@ public final class QuoteSyncJob {
                 .setBackoffCriteria(INITIAL_BACKOFF, JobInfo.BACKOFF_POLICY_EXPONENTIAL);
 
 
-        JobScheduler scheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        JobScheduler scheduler =
+                (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
 
         scheduler.schedule(builder.build());
     }
@@ -184,12 +186,13 @@ public final class QuoteSyncJob {
             context.startService(nowIntent);
         } else {
 
-            JobInfo.Builder builder = new JobInfo.Builder(ONE_OFF_ID, new ComponentName(context, QuoteJobService.class));
-
+            JobInfo.Builder builder =
+                    new JobInfo.Builder(
+                            ONE_OFF_ID,
+                            new ComponentName(context, QuoteJobService.class));
 
             builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
                     .setBackoffCriteria(INITIAL_BACKOFF, JobInfo.BACKOFF_POLICY_EXPONENTIAL);
-
 
             JobScheduler scheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
 

@@ -69,7 +69,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
             @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+            public boolean onMove(
+                    RecyclerView recyclerView,
+                    RecyclerView.ViewHolder viewHolder,
+                    RecyclerView.ViewHolder target) {
                 return false;
             }
 
@@ -87,7 +90,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onResume() {
         super.onResume();
         if (!networkUp()) {
-            Toast.makeText(this, R.string.toast_no_connectivity_stocks_outdated, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.toast_no_connectivity_stocks_outdated, Toast.LENGTH_LONG)
+                    .show();
         }
     }
 
@@ -109,7 +113,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             error.setVisibility(View.VISIBLE);
         } else if (!networkUp()) {
             swipeRefreshLayout.setRefreshing(false);
-            Toast.makeText(this, R.string.toast_no_connectivity_no_refresh, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.toast_no_connectivity_no_refresh, Toast.LENGTH_LONG)
+                    .show();
         } else if (PrefUtils.getStocks(this).size() == 0) {
             swipeRefreshLayout.setRefreshing(false);
             error.setText(getString(R.string.error_no_stocks));
@@ -120,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     public void button(@SuppressWarnings("UnusedParameters") View view) {
-        new AddStockDialog().show(getFragmentManager(), "StockDialogFragment");
+        new AddStockDialog().show(getFragmentManager(), getString(R.string.dialog_tag));
     }
 
     void addStock(String symbol) {
