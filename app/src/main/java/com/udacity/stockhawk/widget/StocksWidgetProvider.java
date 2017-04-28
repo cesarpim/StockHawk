@@ -24,7 +24,7 @@ public class StocksWidgetProvider extends AppWidgetProvider {
             // Associating intent to launch main activity
             Intent intent = new Intent(context, MainActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-            views.setOnClickPendingIntent(R.id.text_widget_title, pendingIntent);
+            views.setOnClickPendingIntent(R.id.text_widget_heather, pendingIntent);
 
             views.setRemoteAdapter(
                     R.id.list_widget_stocks,

@@ -38,7 +38,8 @@
     <string name="price_content_description">"Price: "</string>
     <string name="change_content_description">"Change: "</string>
 
-    <string name="widget_title">Stocks</string>
+    <string name="widget_label">Stocks</string>
+    <string name="widget_heather">@string/app_name</string>
     <string name="widget_empty_message">No stocks to show</string>
 
 </resources>
