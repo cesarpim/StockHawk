@@ -38,4 +38,6 @@
     <string name="price_content_description">"Price: "</string>
     <string name="change_content_description">"Change: "</string>
 
+    <string name="widget_title">SH Stocks</string>
+
 </resources>
