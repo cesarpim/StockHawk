@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 import com.udacity.stockhawk.R;
+import com.udacity.stockhawk.sync.QuoteSyncJob;
 import com.udacity.stockhawk.ui.MainActivity;
 
 /**
@@ -45,12 +46,12 @@ public class StocksWidgetProvider extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        // TODO: replace "bla" with the proper action constant name (defined in QuoteSyncJob ?)
+        // TODO: consider the following chat
 //        cesarpim: do you know where we're supposed to broadcast an action to update our widget?
 //        is it in the QuoteSyncJob? where?
 //        gabor: In the original code it is in the QuoteSyncJob
 //        But I moved it into the Provider. That way the widget can be updated even when you delete something from it.
-        if (intent.getAction().equals("bla")) {
+        if (intent.getAction().equals(QuoteSyncJob.ACTION_DATA_UPDATED)) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             int[] appWidgetIds =
                     appWidgetManager.getAppWidgetIds(new ComponentName(context, getClass()));
