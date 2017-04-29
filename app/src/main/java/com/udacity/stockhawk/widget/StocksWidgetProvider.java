@@ -73,6 +73,4 @@ public class StocksWidgetProvider extends AppWidgetProvider {
         manager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.list_widget_stocks);
     }
 
-    // TODO: also broadcast change when stock is removed (where?)
-
 }

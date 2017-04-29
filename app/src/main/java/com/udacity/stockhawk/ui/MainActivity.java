@@ -1,6 +1,7 @@
 package com.udacity.stockhawk.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 String symbol = adapter.getSymbolAtPosition(viewHolder.getAdapterPosition());
                 PrefUtils.removeStock(MainActivity.this, symbol);
                 getContentResolver().delete(Contract.Quote.makeUriForStock(symbol), null, null);
+                broadcastDataUpdated();
             }
         }).attachToRecyclerView(stockRecyclerView);
 
@@ -198,8 +200,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             PrefUtils.toggleDisplayMode(this);
             setDisplayModeMenuItemIcon(item);
             adapter.notifyDataSetChanged();
+            broadcastDataUpdated();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void broadcastDataUpdated() {
+        // Broadcasting data updated action so that e.g. widgets get notified
+        Intent dataUpdatedIntent = new Intent(QuoteSyncJob.ACTION_DATA_UPDATED);
+        sendBroadcast(dataUpdatedIntent);
+    }
+
 }
