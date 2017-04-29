@@ -39,7 +39,9 @@ public final class PrefUtils {
 
     private static void editStockPref(Context context, String symbol, Boolean add) {
         String key = context.getString(R.string.pref_stocks_key);
-        Set<String> stocks = getStocks(context);
+        // In order to modify the hashset while maintaining consistency, it is necessary to make a
+        // copy of it
+        Set<String> stocks = new HashSet<String>(getStocks(context));
 
         if (add) {
             stocks.add(symbol);
