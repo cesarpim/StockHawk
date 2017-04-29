@@ -3,5 +3,5 @@
     <dimen name="widget_default_height">180dp</dimen>
     <dimen name="widget_default_width">180dp</dimen>
     <dimen name="widget_min_resize_height">110dp</dimen>
-    <dimen name="widget_min_resize_width">110dp</dimen>
+    <dimen name="widget_min_resize_width">180dp</dimen>
 </resources>

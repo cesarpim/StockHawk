@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.RemoteViews;
 
 import com.udacity.stockhawk.R;
@@ -53,13 +54,24 @@ public class StocksWidgetProvider extends AppWidgetProvider {
 //        But I moved it into the Provider. That way the widget can be updated even when you delete something from it.
         if (intent.getAction().equals(QuoteSyncJob.ACTION_DATA_UPDATED)) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-            int[] appWidgetIds =
-                    appWidgetManager.getAppWidgetIds(new ComponentName(context, getClass()));
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.list_widget_stocks);
+            notifyDataChanged(context, appWidgetManager);
         }
     }
 
-    // TODO: override onAppWidgetOptionsChanged()
+    @Override
+    public void onAppWidgetOptionsChanged(
+            Context context,
+            AppWidgetManager appWidgetManager,
+            int appWidgetId,
+            Bundle newOptions) {
+        super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions);
+        notifyDataChanged(context, appWidgetManager);
+    }
+
+    private void notifyDataChanged(Context context, AppWidgetManager manager) {
+        int[] appWidgetIds = manager.getAppWidgetIds(new ComponentName(context, getClass()));
+        manager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.list_widget_stocks);
+    }
 
     // TODO: also broadcast change when stock is removed (where?)
 
