@@ -15,8 +15,6 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import timber.log.Timber;
-
 /**
  * Created by CesarPim on 28-04-2017.
  */
@@ -82,7 +80,6 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
 
             @Override
             public RemoteViews getViewAt(int position) {
-                Timber.d("CALLED: getViewAt(" + position + ")");
                 if (position == AdapterView.INVALID_POSITION
                         || data == null
                         || !data.moveToPosition(position)) {
@@ -145,7 +142,6 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
                     int viewId,
                     String text,
                     String contentDescription) {
-                Timber.d("ID: " + viewId + ", TEXT: " + ", C.D.: " + contentDescription);
                 views.setTextViewText(viewId, text);
                 views.setContentDescription(viewId, contentDescription);
             }

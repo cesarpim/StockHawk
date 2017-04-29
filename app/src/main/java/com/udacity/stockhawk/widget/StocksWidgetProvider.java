@@ -58,4 +58,9 @@ public class StocksWidgetProvider extends AppWidgetProvider {
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.list_widget_stocks);
         }
     }
+
+    // TODO: override onAppWidgetOptionsChanged()
+
+    // TODO: also broadcast change when stock is removed (where?)
+
 }

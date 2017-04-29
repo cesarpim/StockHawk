@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/text_widget_heather"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/widget_heather"
         />
 
