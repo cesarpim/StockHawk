@@ -7,12 +7,20 @@
 
     <TextView
         android:id="@+id/text_widget_heather"
+        style="@style/TitleTextStyle"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingRight="16dp"
+        android:paddingEnd="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/widget_header_height"
         android:text="@string/widget_heather"
         />
 
     <FrameLayout
+        android:background="#FFF"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ListView
@@ -22,6 +30,8 @@
             />
         <TextView
             android:id="@+id/text_widget_empty"
+            style="@style/EmptyListTextStyle"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/widget_empty_message"
