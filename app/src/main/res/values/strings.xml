@@ -37,6 +37,9 @@
     <string name="symbol_content_description">"Symbol: "</string>
     <string name="price_content_description">"Price: "</string>
     <string name="change_content_description">"Change: "</string>
+    <string name="chart_content_description">"History Chart for: "</string>
+
+    <string name="detail_activity_title">History</string>
 
     <string name="widget_label">Stocks</string>
     <string name="widget_heather">@string/app_name</string>

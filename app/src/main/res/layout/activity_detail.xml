@@ -7,19 +7,9 @@
     android:orientation="vertical"
     tools:context="com.udacity.stockhawk.ui.DetailActivity">
 
-    <TextView
-        android:id="@+id/text_symbol"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        style="@style/StockSymbolTextStyle"
-        android:gravity="center"
-        tools:text="SYMBOL"
-        />
-
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart_history"
+        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
