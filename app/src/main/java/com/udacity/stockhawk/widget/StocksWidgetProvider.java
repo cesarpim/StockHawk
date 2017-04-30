@@ -14,7 +14,9 @@ import com.udacity.stockhawk.sync.QuoteSyncJob;
 import com.udacity.stockhawk.ui.MainActivity;
 
 /**
- * Created by CesarPim on 28-04-2017.
+ * AppWidgetProvider responsible for updating our widget
+ *
+ * @author CesarPim
  */
 
 public class StocksWidgetProvider extends AppWidgetProvider {
@@ -47,11 +49,6 @@ public class StocksWidgetProvider extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        // TODO: consider the following chat
-//        cesarpim: do you know where we're supposed to broadcast an action to update our widget?
-//        is it in the QuoteSyncJob? where?
-//        gabor: In the original code it is in the QuoteSyncJob
-//        But I moved it into the Provider. That way the widget can be updated even when you delete something from it.
         if (intent.getAction().equals(QuoteSyncJob.ACTION_DATA_UPDATED)) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             notifyDataChanged(context, appWidgetManager);

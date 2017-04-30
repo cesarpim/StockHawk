@@ -16,7 +16,9 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 /**
- * Created by CesarPim on 28-04-2017.
+ * RemoteViewsService responsible to create the RemoteViewsFactory that maintains our widget's list.
+ *
+ * @author CesarPim
  */
 
 public class StocksWidgetRemoteViewsService extends RemoteViewsService {
@@ -161,14 +163,12 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
                 if (data.moveToPosition(position)) {
                     return data.getLong(Contract.Quote.POSITION_ID);
                 } else {
-                    // TODO: wtf?
                     return position;
                 }
             }
 
             @Override
             public boolean hasStableIds() {
-                // TODO: sera?
                 return true;
             }
         };
