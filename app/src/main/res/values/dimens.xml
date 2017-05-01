@@ -9,4 +9,5 @@
     <dimen name="widget_list_item_height">40dp</dimen>
 
     <dimen name="chart_axis_text_size">4sp</dimen>
+    <dimen name="chart_value_text_size">3sp</dimen>
 </resources>

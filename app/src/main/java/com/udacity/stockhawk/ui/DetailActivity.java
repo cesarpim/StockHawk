@@ -107,6 +107,9 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         styleChartAxis(historyLineChart.getXAxis());
         styleChartAxis(historyLineChart.getAxisLeft());
         styleChartAxis(historyLineChart.getAxisRight());
+        historyLineChart.getLineData().getDataSetByIndex(0).setValueTextColor(Color.WHITE);
+        historyLineChart.getLineData().getDataSetByIndex(0).setValueTextSize(
+                getResources().getDimension(R.dimen.chart_value_text_size));
         historyLineChart.setExtraOffsets(12, 12, 12, 12);
         historyLineChart.setContentDescription(
                 getString(R.string.chart_content_description) + symbol);
