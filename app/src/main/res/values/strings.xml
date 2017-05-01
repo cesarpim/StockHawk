@@ -24,6 +24,7 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_add">Add</string>
     <string name="dialog_tag" translatable="false">StockDialogFragment</string>
+    <string name="dialog_allowed_digits" translatable="false">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 
     <string name="error_no_network">No connection! Stocks will load when device is online.</string>
     <string name="error_no_stocks">No stocks added! Hit the plus button to add one.</string>
