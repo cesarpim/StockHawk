@@ -34,7 +34,6 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
             @Override
             public void onCreate() {
                 setupNumericalFormats();
-                onDataSetChanged();
             }
 
             private void setupNumericalFormats() {

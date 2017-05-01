@@ -65,8 +65,9 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                 while ((line = reader.readNext()) != null) {
                     if (line.length == 2) {
                         Date date = new Date(Long.valueOf(line[0]));
-                        formattedDates.add(
-                                new SimpleDateFormat("MMM-yy", Locale.ENGLISH).format(date));
+                        formattedDates.add( new SimpleDateFormat(
+                                getString(R.string.chart_dates_format),
+                                Locale.ENGLISH).format(date));
                         stockValues.add(Float.valueOf(line[1]));
                     }
                 }

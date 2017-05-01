@@ -40,6 +40,7 @@
     <string name="chart_content_description">"History Chart for: "</string>
 
     <string name="detail_activity_title">History</string>
+    <string name="chart_dates_format">"MMM-yy"</string>
 
     <string name="widget_label">Stocks</string>
     <string name="widget_heather">@string/app_name</string>
