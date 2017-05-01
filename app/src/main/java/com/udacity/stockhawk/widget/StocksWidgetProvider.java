@@ -7,10 +7,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.TaskStackBuilder;
 import android.widget.RemoteViews;
 
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.sync.QuoteSyncJob;
+import com.udacity.stockhawk.ui.DetailActivity;
 import com.udacity.stockhawk.ui.MainActivity;
 
 /**
@@ -34,11 +36,11 @@ public class StocksWidgetProvider extends AppWidgetProvider {
                     R.id.list_widget_stocks,
                     new Intent(context, StocksWidgetRemoteViewsService.class));
 
-            // TODO: Associate pending intent template
-//            PendingIntent clickPendingIntentTemplate = TaskStackBuilder.create(context)
-//                    .addNextIntentWithParentStack(new Intent(context, DetailActivity.class))
-//                    .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-//            views.setPendingIntentTemplate(R.id.list_widget_stocks, clickPendingIntentTemplate);
+            // Associating pending intent template
+            PendingIntent clickPendingIntentTemplate = TaskStackBuilder.create(context)
+                    .addNextIntentWithParentStack(new Intent(context, DetailActivity.class))
+                    .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+            views.setPendingIntentTemplate(R.id.list_widget_stocks, clickPendingIntentTemplate);
 
             views.setEmptyView(R.id.list_widget_stocks, R.id.text_widget_empty);
 

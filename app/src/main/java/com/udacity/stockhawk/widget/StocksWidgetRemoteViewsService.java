@@ -10,6 +10,7 @@ import android.widget.RemoteViewsService;
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
+import com.udacity.stockhawk.ui.DetailActivity;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -30,13 +31,12 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
             private DecimalFormat dollarFormatWithPlus;
             private DecimalFormat percentageFormat;
 
-
-
             @Override
             public void onCreate() {
+                setupNumericalFormats();
+            }
 
-//                final long identityToken = Binder.clearCallingIdentity();
-
+            private void setupNumericalFormats() {
                 dollarFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.US);
                 dollarFormatWithPlus = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.US);
                 dollarFormatWithPlus.setPositivePrefix(getString(R.string.dollar_positive_prefix));
@@ -44,9 +44,6 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
                 percentageFormat.setMaximumFractionDigits(2);
                 percentageFormat.setMinimumFractionDigits(2);
                 percentageFormat.setPositivePrefix(getString(R.string.percentage_positive_resource));
-
-//                onDataSetChanged();
-//                Binder.restoreCallingIdentity(identityToken);
             }
 
             @Override
@@ -126,15 +123,10 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
                         change,
                         getString(R.string.change_content_description) + change);
 
-                // TODO: set the on click fill intent
-//                final Intent fillInIntent = new Intent();
-//                String locationSetting =
-//                        Utility.getPreferredLocation(DetailWidgetRemoteViewsService.this);
-//                Uri weatherUri = WeatherContract.WeatherEntry.buildWeatherLocationWithDate(
-//                        locationSetting,
-//                        dateInMillis);
-//                fillInIntent.setData(weatherUri);
-//                views.setOnClickFillInIntent(R.id.widget_list_item, fillInIntent);
+                // Setting the on-click-fill-in intent with the appropriate stock symbol
+                final Intent fillInIntent = new Intent();
+                fillInIntent.putExtra(DetailActivity.SYMBOL_KEY, symbol);
+                views.setOnClickFillInIntent(R.id.widget_list_item, fillInIntent);
 
                 return views;
             }
